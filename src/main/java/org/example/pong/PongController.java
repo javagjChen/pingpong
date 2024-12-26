@@ -1,4 +1,4 @@
-package org.example;
+package org.example.pong;
 
 
 import org.slf4j.Logger;
