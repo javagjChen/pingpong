@@ -1,0 +1,6 @@
+logging:
+  level:
+    root: INFO
+  file:
+    name: logs/ping-service.log
+    pong-service: logs/pong-service.log
