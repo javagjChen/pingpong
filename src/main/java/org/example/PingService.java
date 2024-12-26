@@ -24,7 +24,7 @@ public class PingService {
     private final WebClient webClient = WebClient.create(PONG_URL);
 
 
-    @Scheduled(fixedRate = 100)
+    @Scheduled(fixedRate = 1000)
     public void sendRequest() {
         RandomAccessFile raf = null;
         FileLock lock = null;
