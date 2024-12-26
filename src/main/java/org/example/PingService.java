@@ -2,10 +2,8 @@ package org.example;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.File;
@@ -13,17 +11,12 @@ import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 
 
-@SpringBootApplication
-@EnableScheduling
+@Component
 public class PingService {
 
     private static final String PONG_URL = "http://localhost:8080/pong/respond";
     private final WebClient webClient = WebClient.create(PONG_URL);
     private static final Logger logger = LoggerFactory.getLogger(PingService.class);
-
-    public static void main(String[] args) {
-        SpringApplication.run(PingService.class, args);
-    }
 
     @Scheduled(fixedRate = 1000)
     public void sendRequest() {
